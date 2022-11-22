@@ -3,7 +3,23 @@
   <p>{{body}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 
-  <p>
-    <button class="btn btn-primary">Comment here!</button>
-  </p>
 </div>
+
+{{#if logged_in}}
+
+{{!-- <form class="comment-form">
+{{!-- TODO: Not sure what I'm doing here. --}}
+  <div class="comment-text">
+    <textarea id="comment_body" name="comment_body"
+    placeholder="Type comment here..."
+    </textarea>
+  </div>
+
+  <div class="btn-comment">
+  <button class="btn" type="submit">Add Comment</button>
+</div>
+</form> --}}
+
+{{/if}}
+
+{{!-- <script src="/public/js/comments.js"></script> --}}
