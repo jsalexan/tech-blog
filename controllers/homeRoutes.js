@@ -81,13 +81,6 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// TODO: Created this because GIF shows there needs to be an option to signup, but not sure how to integrate yet.
-router.get('/signUp', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/dashboard');
-    return;
-  }
-  res.render('signUp');
-})
+
 
 module.exports = router;
