@@ -36,6 +36,8 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+
   
   document
     .querySelector('.new-post-form')

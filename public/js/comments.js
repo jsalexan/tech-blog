@@ -1,12 +1,12 @@
 const commentFormHandler = async (event) => {
     event.preventDefault();
   
-    const body = document.querySelector('#comment').value.trim();
+    const commentBody = document.querySelector('#comment').value.trim();
   
-    if (body) {
-      const response = await fetch(`/api/comments`, {
+    if (commentBody) {
+      const response = await fetch('/api/comments', {
         method: 'POST',
-        body: JSON.stringify({ body }),
+        body: JSON.stringify({ commentBody }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -15,6 +15,7 @@ const commentFormHandler = async (event) => {
     if (response.ok) {
         document.location.reload();
     } else {
+        console.log("Here's the error!")
         alert(response.statusText);
     }
 }
