@@ -2,7 +2,8 @@
   <h2>{{title}}</h2>
   <p>{{body}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>{{comment_body}}</p>
+   <p>{{comment_body}}</p>
+
 </div>
 
 {{#if logged_in}}
@@ -15,7 +16,9 @@
         <input type="hidden" name="post-id" value="{{post.id}}">
         <button type="submit">Add Comment</button>
     </form>
+  <p>Like it? <button class="like-button"></button></p>
 
 {{/if}}
-<script src='../public/js/comments.js'></script>
+<script src="/js/comments.js"></script>
+
 

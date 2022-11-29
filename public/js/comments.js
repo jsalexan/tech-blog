@@ -1,24 +1,27 @@
-const commentFormHandler = async (event) => {
-    event.preventDefault();
+async function commentFormHandler(event) {
+  event.preventDefault();
   
-    const commentBody = document.querySelector('#comment').value.trim();
-  
-    if (commentBody) {
-      const response = await fetch('/api/comments', {
+  const commentBody = document.querySelector('#comment').value.trim();
+
+  if (commentBody) {
+      const response = await fetch('/api/comment', {
         method: 'POST',
-        body: JSON.stringify({ commentBody }),
+        body: JSON.stringify({
+
+          commentBody
+        }),
         headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    }
+          'Content-Type': 'application/json'
+        }
+      });
+
     if (response.ok) {
         document.location.reload();
     } else {
-        console.log("Here's the error!")
+        console.log("Error creating comment!")
         alert(response.statusText);
     }
-}
+}};
 
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler)
 
