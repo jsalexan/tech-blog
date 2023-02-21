@@ -33,10 +33,17 @@ router.get('/post/:id', async (req, res) => {
         {
           model: User,
           attributes: ['name'],
-        }, 
-
-          Comment,
-         
+        },
+        {
+          model: Comment,
+          attributes: ['comment_body', 'date_commented', 'user_id'],
+          include: [
+            {
+              model: User,
+              attributes: ['name'],
+            },
+          ],
+        },
       ],
     });
 
@@ -78,7 +85,5 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
-
-
 
 module.exports = router;
