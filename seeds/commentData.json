@@ -1,0 +1,22 @@
+[
+    {
+        "comment_body": "Let me get back to you on this when I'm at my desk.",
+        "user_id": 1,
+        "post_id": 2
+    },
+    {
+        "comment_body": "I don't agree with this.",
+        "user_id": 2,
+        "post_id": 1
+    },
+    {
+        "comment_body": "I love this blog!",
+        "user_id": 3,
+        "post_id": 3
+    },
+    {
+        "comment_body": "There's a lesson in this...",
+        "user_id": 1,
+        "post_id": 3
+    }
+]

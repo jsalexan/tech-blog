@@ -1,14 +1,20 @@
 [
   {       
     "title": "What's Up With JavaScript?",
-    "body": "Each day I sit down at my computer and before long I think to myself: What's up with JavaScript? I can't be the only one. Sound off in the comments!"
+    "body": "Each day I sit down at my computer and before long I think to myself: What's up with JavaScript? I can't be the only one. Sound off in the comments!",
+    "date_created": "December 12, 2022",
+    "user_id": 2
   }, 
   { 
     "title": "Centering a DIV",
-    "body": "Admit it. You have to look it up each time you need it. Let's help each other out! Post your favorite method in the comments." 
+    "body": "Admit it. You have to look it up each time you need it. Let's help each other out! Post your favorite method in the comments.",
+    "date_created": "January 15, 2023",
+    "user_id": 1
   },
   {
     "title": "Best Order To Learn?",
-    "body": "Imagine you're learning to code for the first time. What do you think is the best order to proceed? HTML, CSS, JS? Python or Scratch? Something else? Let's help out the newbs...post your ideal path in the comments."
+    "body": "Imagine you're learning to code for the first time. What do you think is the best order to proceed? HTML, CSS, JS? Python or Scratch? Something else? Let's help out the newbs...post your ideal path in the comments.",
+    "date_created": "November 14, 2022",
+    "user_id": 3
   }
 ]

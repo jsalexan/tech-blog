@@ -1,13 +1,12 @@
 
-{{#each comments as |comment| }}
   <div class="comments">
 
   <section class="comment" id="comment">
     <div class="meta">
         Posted by
-      {{comment.user.name}} 
-      {{!-- on
-      {{format_date comment.date_commented}} --}}
+      {{user.name}} 
+      on
+      {{format_date comment.date_created}}
     </div>
     <div class="text">
       {{comment.comment_body}}
@@ -15,4 +14,3 @@
   </section>
 
 </div>
-  {{/each}}

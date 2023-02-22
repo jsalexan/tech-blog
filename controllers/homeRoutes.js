@@ -5,25 +5,13 @@ const withAuth = require('../utils/auth');
 const path = require('path');
 
 router.get('/', async (req, res) => {
-  try {
-    const postData = await Post.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+  const postData = await Post.findAll();
+  const posts = postData.map((post) => post.get({ plain: true }));
 
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    res.render('homepage', { 
-      posts, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  res.render('homepage', {
+    posts,
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get('/post/:id', async (req, res) => {
@@ -36,7 +24,7 @@ router.get('/post/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['comment_body', 'date_commented', 'user_id'],
+          attributes: ['comment_body', 'date_created', 'user_id'],
           include: [
             {
               model: User,
@@ -47,13 +35,13 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
 
-    const post = postData.get({ plain: true });
-    console.log(post);
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in
+    const posts = postData.get({ plain: true });
+    res.render('viewpost', {
+      ...posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
