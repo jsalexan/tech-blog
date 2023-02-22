@@ -2,10 +2,13 @@
   <h2>{{title}}</h2>
   <p>{{body}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-   <p>{{comment_body}}</p>
 
 </div>
-
+ {{#if comments.length}}
+        {{#each comments as |comment|}}
+        {{> comments}}
+        {{/each}}
+ {{/if}}
 {{#if logged_in}}
 
 <form class="comment-form" id="comment-form">
@@ -19,7 +22,7 @@
   
 
 {{/if}}
-{{> comments }}
+
 <script src="/js/comments.js"></script>
 
 
