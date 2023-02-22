@@ -1,16 +1,16 @@
 
+  {{#each this}}
   <div class="comments">
 
-  <section class="comment" id="comment">
+  <section class="comment">
     <div class="meta">
-        Posted by
-      {{user.name}} 
-      on
-      {{format_date comment.date_created}}
+      {{user.name}} on
+      {{!-- {{format_date post.date_created}} --}}
     </div>
     <div class="text">
-      {{comment.comment_body}}
+      {{comment_body}}
     </div>
   </section>
 
 </div>
+  {{/each}}

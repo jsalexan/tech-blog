@@ -15,8 +15,8 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    date_created: {
-      type: DataTypes.DATE,
+    dateCreated: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
@@ -39,7 +39,6 @@ Comment.init(
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "comment",
