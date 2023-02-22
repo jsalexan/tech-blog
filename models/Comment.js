@@ -15,7 +15,7 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    date_commented: {
+    dateCreated: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
@@ -30,7 +30,7 @@ Comment.init(
     },
     post_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+    
       references: {
         model: "post",
         key: "id",
