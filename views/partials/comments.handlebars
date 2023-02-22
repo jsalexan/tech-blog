@@ -4,13 +4,13 @@
 
   <section class="comment" id="comment">
     <div class="meta">
-       <p> Posted by
-      {{user.name}} 
-
-        </p>
+        Posted by
+      {{comment.user.name}} 
+      {{!-- on
+      {{format_date comment.date_commented}} --}}
     </div>
     <div class="text">
-      {{comment_body}}
+      {{comment.comment_body}}
     </div>
   </section>
 

@@ -3,10 +3,10 @@ async function commentFormHandler(event) {
 
   const commentBody = document.querySelector('#comment').value.trim();
 
-  const postId = window.location.href.toString().split('/post/')[1];
+  const postId = document.querySelector('input[name="post-id"]').value;
 
-  if (commentBody && postId) {
-
+  if (commentBody) {
+    try {
       const response = await fetch('/api/comment', {
         method: 'POST',
         body: JSON.stringify({
@@ -19,12 +19,16 @@ async function commentFormHandler(event) {
       });
     
       if (response.ok) {
-        document.location.reload()
-    } else {
-        alert('Failed to create comment');
+        document.location.reload();
+      } else {
+        console.log("Error posting comment")
+        alert(response.statusText);
       }
+    } catch (error) {
+      console.log(error);
+      alert('Error posting comment. Please try again later.');
+    }
+  }
 }
-  };
-
 
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
