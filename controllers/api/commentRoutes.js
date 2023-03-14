@@ -1,19 +1,16 @@
 const router = require('express').Router();
-const { Comment, User } = require('../../models');
+const { Comment, User, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
-  try {
-    const commentData = await Comment.findAll({
-      include: [User],
-    });
-    // serialize 
-    const comments = commentData.map((comment) => comment.get({ plain: true, include: [User] }));
-    console.log(comments);
-
-    res.render('singlepost', { comments, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    res.status(500).json(err);
+try {
+const commentData = await Comment.findAll({
+where: { 
+});
+const comments = commentData.map((comment) => comment.get({ plain: true }));
+res.render('singlepost', { comments, logged_in: req.session.logged_in });
+} catch (err) {
+res.status(500).json(err);
   }
 });
 
