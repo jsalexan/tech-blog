@@ -8,8 +8,7 @@ router.get('/', withAuth, async (req, res) => {
       include: [User],
     });
     // serialize 
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-
+    const comments = commentData.map((comment) => comment.get({ plain: true, include: [User] }));
     console.log(comments);
 
     res.render('singlepost', { comments, loggedIn: req.session.loggedIn });
@@ -22,14 +21,15 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
       user_id: req.session.user_id,
-      post_id: req.body.postId,
-      comment_body: req.body.commentBody,
+      post_id: req.body.post_id,
+      comment_body: req.body.comment_body,
     });
 
     res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }
+  console.log(newComment)
 });
 
 module.exports = router;

@@ -13,12 +13,15 @@
             <label>Comment:</label>
             <textarea type="text" id="comment" rows="20" placeholder="What's on your mind?"></textarea>
         </div>
-        <input type="hidden" name="post-id" value="{{post.id}}">
+        <input type="hidden" name="post_id" value="{{id}}">
         <button type="submit">Add Comment</button>
     </form>
-  <p>Like it? <button class="like-button"></button></p>
+{{comments}}
+
 
 {{/if}}
-<script src="/js/comments.js"></script>
+<script src="/public/js/comments.js"></script>
+
+
 
 
