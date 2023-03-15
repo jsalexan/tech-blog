@@ -1,8 +1,6 @@
-const express = require('express');
 const router = require('express').Router();
 const { Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
-const path = require('path');
 
 router.get('/', async (req, res) => {
   try {
@@ -10,16 +8,8 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name', 'id'],
+          attributes: ['name'],
         },
-        {
-          model: Comment,
-          attributes: ["id", "comment_body", "date_created", "post_id", "user_id"],
-          include: {
-              model: User,
-              attributes: ["name", "id"],
-          },
-        }
       ],
     });
 
@@ -42,14 +32,9 @@ router.get('/post/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         }, 
-        {    
-        model: Comment,
-        attributes: ["id", "comment_body", "date_created", "post_id", "user_id"],
-        include: {
-            model: User,
-            attributes: ["name", "id"],
-        },
-      } 
+
+          Comment,
+         
       ],
     });
 
