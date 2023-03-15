@@ -1,9 +1,11 @@
-const helpers = {
+module.exports = {
   format_date: (date) => {
-    console.log(date); // Add this line
-    return `${new Date(date).toLocaleDateString()} ${new Date(date).toLocaleTimeString()}`;
+      return date.toLocaleDateString();
   },
-  // Other helpers ...
+  format_plural: (word, amount) => {
+      if (amount !== 1) {
+        return `${word}s`;
+      }
+      return word;
+  }
 };
-
-module.exports = helpers;
