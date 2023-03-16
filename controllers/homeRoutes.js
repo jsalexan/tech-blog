@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 // -------------GET posts by ID with comments ----------------
-router.get('/:id', isAuthenticated, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
       const postData = await Post.findOne({
           where: { id: req.params.id },
