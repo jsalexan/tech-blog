@@ -1,29 +1,31 @@
 async function commentFormHandler(event) {
-  event.preventDefault();
-
-  const commentBody = document.querySelector('#comment').value.trim();
-
-  const postId = document.querySelector('input[name="post-id"]').value;
-
-  if (commentBody) {
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        body: JSON.stringify({
-          postId,
-          commentBody
-        }),
-        headers: {
-          'Content-Type': 'application/json'
+    event.preventDefault();
+  
+    const comment_body = document.querySelector('#comment').value.trim();
+  
+    const post_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+  ]
+  
+    if (comment_body) {
+        const response = await fetch('/api/comments', {
+          method: 'POST',
+          body: JSON.stringify({
+            post_id,
+            comment_body
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+      
+        if (response.ok) {
+          document.location.reload();
+        } else {
+            console.log("Error posting comment")
+          alert(response.statusText);
         }
-      });
-    
-      if (response.ok) {
-        document.location.reload();
-      } else {
-          console.log("Error posting comment")
-        alert(response.statusText);
       }
-    }
-}
-
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+  }
+  
+  document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);

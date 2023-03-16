@@ -2,36 +2,12 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', (req, res) => {
-  Comment.findAll({})
-      .then(commentData => res.json(commentData))
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      })
-});
-
-router.get('/:id', async (req, res) => {
-    try {
-        const commentData = await Comment.findByPk(req.params.id, {
-            include: [{ model: Post}]
-        });
-
-        if (!commentData) {
-            res.status(404).json({ message: 'No comment found with that id!'});
-            return;
-        }
-        res.status(200).json(commentData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 router.post('/', withAuth, async (req, res) => {
     try {
       const newComment = await Comment.create({
-        ...req.body,
+        comment_body: req.body.comment_body,
         user_id: req.session.user_id,
+        post_id: req.body.post_id
       });
   
       res.status(200).json(newComment);

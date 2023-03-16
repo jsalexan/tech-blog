@@ -10,12 +10,14 @@
 <form class="comment-form">
         <div class="input-field comment-field">
             <label>Comment:</label>
-            <textarea type="text" id="comment" rows="20" placeholder="What's on your mind?"></textarea>
+            <input type="text" id="comment" rows="20" placeholder="What's on your mind?"/>
         </div>
         <input type="hidden" name="post-id" value="{{post.id}}">
         <button class="submit-btn1" type="submit">Add Comment</button>
     </form>
 
 {{/if}}
-<script src='../public/js/comments.js'></script>
+{{>comments}}
+
+<script src="/js/comment.js"></script>
 
