@@ -1,4 +1,4 @@
-async function commentFormHandler(event) {
+const commentFormHandler = async (event) => {
     event.preventDefault();
   
     const comment_body = document.querySelector('#comment').value.trim();
@@ -21,6 +21,7 @@ async function commentFormHandler(event) {
       
         if (response.ok) {
           document.location.reload();
+          console.log(comment_body);
         } else {
             console.log("Error posting comment")
           alert(response.statusText);

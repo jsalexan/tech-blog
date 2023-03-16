@@ -2,10 +2,7 @@
   <h2>{{title}}</h2>
   <p>{{body}}</p>
   <p style="font-size: 15px;">Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>{{comment_body}}</p>
 </div>
-
-{{#if logged_in}}
 
 <form class="comment-form">
         <div class="input-field comment-field">
@@ -16,8 +13,11 @@
         <button class="submit-btn1" type="submit">Add Comment</button>
     </form>
 
-{{/if}}
-{{>comments}}
+<div class="container">
+    <div class="comments" style="font-size: 14px;">
 
+{{> comments}}
+ 
+</div>
 <script src="/js/comment.js"></script>
 

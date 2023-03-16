@@ -1,14 +1,15 @@
-  {{#each this }}
+ {{#each comments as |comment| }}
   <div class="comments">
-
+    <hr>
   <section class="comment">
-    <div class="meta">
-      {{user.name}} 
+        <div class="text">
+       <p>{{comment.comment_body}}</p>
     </div>
-    <div class="text">
-      {{comment_body}}
+    <div class="meta" style="font-style: italic;">
+       <p>{{user.name}} - {{format_date createdAt}}</p>
     </div>
   </section>
+  <hr>
 
 </div>
   {{/each}}
