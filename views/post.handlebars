@@ -1,7 +1,9 @@
-<div class="text-center">
+<container class="flex">
+<div class="text-center card p-5">
   <h2>{{title}}</h2>
-  <p>{{body}}</p>
   <p style="font-size: 15px;">Created by {{user.name}} on {{format_date date_created}}</p>
+  <p style="max-width: 800px;">{{body}}</p>
+  
   <p>{{comment_body}}</p>
 </div>
 
@@ -20,6 +22,6 @@
 <div>
 <p>{{>comments}}</p>
 </div>
-
+</container>
 <script src="/js/comment.js"></script>
 

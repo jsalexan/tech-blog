@@ -1,18 +1,22 @@
-<!-- Loop over each object in the posts array -->
-{{#each posts as |post| }}
-<div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-         <h2 class="post-title">
-           <a href="/post/{{post.id}}">
-        {{post.title}}
-    </h2></a>
-   
-    <p class="post-meta">Created by {{post.user.name}} on {{format_date post.date_created}}</p>
-  </div>
 
-   <hr class="my-4" />
-</div>
+<container class="flex"></container>
+{{#each posts as |post| }}
+<div class="card p-3 main-card">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img style="max-width: 200px;"src="https://user-images.githubusercontent.com/110498167/225777403-6c9e3a37-fe45-4daf-97fd-7c46a279969a.png" class="img-fluid rounded-start" alt="computer keyboard with a key called Hashtag">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="post-title">   
+         <a href="/post/{{post.id}}">
+         {{post.title}}
+         </h2></a></h2>
+        <p class="card-text"></p>
+        <p class="card-text"><small class="text-muted">Created by {{post.user.name}} on {{format_date post.date_created}}</small></p>
+      </div>
+    </div>
+  </div>
 </div>
 {{/each}}
-
+</container>
